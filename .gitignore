@@ -396,3 +396,7 @@ FodyWeavers.xsd
 
 # JetBrains Rider
 *.sln.iml
+/Unity3d/TrainSim/Temp
+/Unity3d/TrainSim/UserSettings
+/Unity3d/TrainSim/ProjectSettings
+/Unity3d/TrainSim/Library
