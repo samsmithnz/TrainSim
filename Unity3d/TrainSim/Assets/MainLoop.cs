@@ -6,8 +6,8 @@ public class MainLoop : MonoBehaviour
     public GameObject gridPrefab;
     public int width = 20;
     public int breadth = 20;
-    private bool showCoordsOnFloor = true;
-    private bool showLinesOnFloor = true;
+    private readonly bool showCoordsOnFloor = true;
+    private readonly bool showLinesOnFloor = true;
 
 
     void Start()
@@ -112,18 +112,18 @@ public class MainLoop : MonoBehaviour
         //}
     }
 
-    private void AddBorderToGridPrefab(GameObject gridPrefab, UnityEngine.Color color)
-    {
-        GameObject border = new GameObject("Border");
-        border.transform.parent = gridPrefab.transform;
-        border.name = "Border";
-        border.AddComponent<MeshRenderer>();
-        border.GetComponent<Renderer>().material.color = color;
-    }
+    //private void AddBorderToGridPrefab(GameObject gridPrefab, UnityEngine.Color color)
+    //{
+    //    GameObject border = new GameObject("Border");
+    //    border.transform.parent = gridPrefab.transform;
+    //    border.name = "Border";
+    //    border.AddComponent<MeshRenderer>();
+    //    border.GetComponent<Renderer>().material.color = color;
+    //}
 
     // Update is called once per frame
-    void Update()
-    {
+    //void Update()
+    //{
 
-    }
+    //}
 }
