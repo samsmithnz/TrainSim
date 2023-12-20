@@ -27,6 +27,7 @@ public class MainLoop : MonoBehaviour
         parentFloor.transform.parent = parentGameObject.transform;
 
         int y = 0;
+        float scale = 2f;
         //Draw the map on the screen
         for (int x = 0; x <= width - 1; x++)
         {
@@ -34,8 +35,9 @@ public class MainLoop : MonoBehaviour
             {
                 //Create map floor
                 GameObject newFloorObject = GameObject.CreatePrimitive(PrimitiveType.Cube);
-                newFloorObject.transform.position = new Vector3(x, -0.5f, z);
-                newFloorObject.name = $"floor_type_x{x}_y{y}_z{z}";
+                newFloorObject.transform.position = new Vector3(x * scale, -(scale/2), z * scale);
+                newFloorObject.transform.localScale = new Vector3(scale, scale, scale);
+                newFloorObject.name = $"floor_x{x}_y{y}_z{z}";
                 newFloorObject.transform.parent = parentFloor.transform;
 
                 if (showCoordsOnFloor == true)
@@ -56,7 +58,7 @@ public class MainLoop : MonoBehaviour
                     };
                     newFloorTextObject.transform.SetParent(newFloorCanvasObject.transform);
                     UnityEngine.UI.Text floorText = newFloorTextObject.transform.gameObject.AddComponent<UnityEngine.UI.Text>();
-                    floorText.transform.localPosition = new Vector3(0f, 0.501f, 0f);
+                    floorText.transform.localPosition = new Vector3(0f, (scale/2) + 0.501f, 0f);
                     floorText.transform.localRotation = Quaternion.Euler(90f, 0f, 0f);
                     floorText.transform.localScale = new Vector3(0.01f, 0.01f, 0.01f);
                     //floorText.transform.parent = floorCanvas.transform;
@@ -74,7 +76,7 @@ public class MainLoop : MonoBehaviour
                 //Create map objects, if exists
                 if (showLinesOnFloor == true)
                 {
-                    Color darkGray = new Color(169, 169, 169); //Dark gray
+                    Color darkGray = new Color(0.184313725f, 0.309803922f, 0.309803922f); //Dark gray
                     //Draw line renderers
                     if (x == 0 && z != breadth - 1)
                     {
