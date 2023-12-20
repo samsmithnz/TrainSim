@@ -1,6 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using System.Drawing;
 using UnityEngine;
 using Color = UnityEngine.Color;
 
@@ -77,14 +74,15 @@ public class MainLoop : MonoBehaviour
                 //Create map objects, if exists
                 if (showLinesOnFloor == true)
                 {
+                    Color darkGray = new Color(169, 169, 169); //Dark gray
                     //Draw line renderers
                     if (x == 0 && z != breadth - 1)
                     {
                         LineRenderer xguideLine = newFloorObject.AddComponent<LineRenderer>();
                         xguideLine.material = new Material(Shader.Find("Sprites/Default"));
                         xguideLine.widthMultiplier = 0.01f;
-                        xguideLine.startColor = Color.cyan;
-                        xguideLine.endColor = Color.cyan;
+                        xguideLine.startColor = darkGray;
+                        xguideLine.endColor = darkGray;
                         xguideLine.SetPosition(0, new Vector3(-0.5f, 0.01f, z + 0.5f));
                         xguideLine.SetPosition(1, new Vector3(width - 0.5f, 0.01f, z + 0.5f));
                     }
@@ -93,8 +91,8 @@ public class MainLoop : MonoBehaviour
                         LineRenderer zguideLine = newFloorObject.AddComponent<LineRenderer>();
                         zguideLine.material = new Material(Shader.Find("Sprites/Default"));
                         zguideLine.widthMultiplier = 0.01f;
-                        zguideLine.startColor = Color.cyan;
-                        zguideLine.endColor = Color.cyan;
+                        zguideLine.startColor = darkGray;
+                        zguideLine.endColor = darkGray;
                         zguideLine.SetPosition(0, new Vector3(x - 0.5f, 0.01f, -0.5f));
                         zguideLine.SetPosition(1, new Vector3(x - 0.5f, 0.01f, breadth - 0.5f));
                     }
