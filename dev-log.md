@@ -1,0 +1,1 @@
+- Day 0 - Prep: Started by creating a new GitHub repo, Unity project, and importing a few packages, POLYGON Icons pack, POLYGON Prototype pack, and most importantly, Simple Trains.
