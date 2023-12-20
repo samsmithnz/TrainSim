@@ -536,8 +536,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gridPrefab: {fileID: 0}
-  width: 20
-  breadth: 20
+  width: 4
+  breadth: 4
 --- !u!1 &772810200
 GameObject:
   m_ObjectHideFlags: 0
