@@ -35,7 +35,7 @@ public class MainLoop : MonoBehaviour
             {
                 //Create map floor
                 GameObject newFloorObject = GameObject.CreatePrimitive(PrimitiveType.Cube);
-                newFloorObject.transform.position = new Vector3(x * scale, -(scale/2), z * scale);
+                newFloorObject.transform.position = new Vector3(x * scale, -(scale / 2), z * scale);
                 newFloorObject.transform.localScale = new Vector3(scale, scale, scale);
                 newFloorObject.name = $"floor_x{x}_y{y}_z{z}";
                 newFloorObject.transform.parent = parentFloor.transform;
@@ -58,7 +58,7 @@ public class MainLoop : MonoBehaviour
                     };
                     newFloorTextObject.transform.SetParent(newFloorCanvasObject.transform);
                     UnityEngine.UI.Text floorText = newFloorTextObject.transform.gameObject.AddComponent<UnityEngine.UI.Text>();
-                    floorText.transform.localPosition = new Vector3(0f, (scale/2) + 0.501f, 0f);
+                    floorText.transform.localPosition = new Vector3(0f, (scale / 2) + 0.501f, 0f);
                     floorText.transform.localRotation = Quaternion.Euler(90f, 0f, 0f);
                     floorText.transform.localScale = new Vector3(0.01f, 0.01f, 0.01f);
                     //floorText.transform.parent = floorCanvas.transform;
@@ -73,7 +73,8 @@ public class MainLoop : MonoBehaviour
                 //Create a grid on the floor 
                 if (showGridOnFloor == true)
                 {
-                    Color darkGray = new Color(0.184313725f, 0.309803922f, 0.309803922f); //Dark gray
+                    //Color darkGray = new Color(0.184313725f, 0.309803922f, 0.309803922f); //Dark gray
+                    Color darkGray = Color.red;
                     //Draw line renderers
                     if (x == 0 && z != breadth - 1)
                     {
@@ -82,9 +83,9 @@ public class MainLoop : MonoBehaviour
                         xguideLine.widthMultiplier = 0.01f;
                         xguideLine.startColor = darkGray;
                         xguideLine.endColor = darkGray;
-                        xguideLine.SetPosition(0, new Vector3(-(scale / 2), 0.01f, (z * scale) + (scale / 2)));
-                        xguideLine.SetPosition(1, new Vector3(width - (scale / 2), 0.01f, (z * scale) + (scale / 2)));
-                        Debug.Log("xguideLine: " + xguideLine.GetPosition(0) + " " + xguideLine.GetPosition(1));  
+                        xguideLine.SetPosition(0, new Vector3(-(scale / 2), 0.02f, (z * scale) + (scale / 2)));
+                        xguideLine.SetPosition(1, new Vector3((width * scale) - (scale / 2), 0.02f, (z * scale) + (scale / 2)));
+                        Debug.Log("xguideLine: " + xguideLine.GetPosition(0) + " " + xguideLine.GetPosition(1));
                     }
                     else if (z == breadth - 1 && x != 0)
                     {
@@ -93,8 +94,8 @@ public class MainLoop : MonoBehaviour
                         zguideLine.widthMultiplier = 0.01f;
                         zguideLine.startColor = darkGray;
                         zguideLine.endColor = darkGray;
-                        zguideLine.SetPosition(0, new Vector3((x * scale), 0.01f, -(scale / 2)));
-                        zguideLine.SetPosition(1, new Vector3((x * scale) , 0.01f, breadth - (scale / 2)));
+                        zguideLine.SetPosition(0, new Vector3((x * scale) - (scale / 2), 0.02f, -(scale / 2)));
+                        zguideLine.SetPosition(1, new Vector3((x * scale) - (scale / 2), 0.02f, (breadth * scale) - (scale / 2)));
                         Debug.Log("zguideLine: " + zguideLine.GetPosition(0) + " " + zguideLine.GetPosition(1));
                     }
                 }
