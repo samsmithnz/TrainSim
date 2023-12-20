@@ -85,8 +85,8 @@ public class MainLoop : MonoBehaviour
                         xguideLine.widthMultiplier = 0.01f;
                         xguideLine.startColor = darkGray;
                         xguideLine.endColor = darkGray;
-                        xguideLine.SetPosition(0, new Vector3(-0.5f, 0.01f, z + 0.5f));
-                        xguideLine.SetPosition(1, new Vector3(width - 0.5f, 0.01f, z + 0.5f));
+                        xguideLine.SetPosition(0, new Vector3(-(scale / 2), 0.01f, (z * scale) + (scale / 2)));
+                        xguideLine.SetPosition(1, new Vector3(width - (scale / 2), 0.01f, (z * scale) + (scale / 2)));
                     }
                     else if (z == breadth - 1 && x != 0)
                     {
@@ -95,8 +95,8 @@ public class MainLoop : MonoBehaviour
                         zguideLine.widthMultiplier = 0.01f;
                         zguideLine.startColor = darkGray;
                         zguideLine.endColor = darkGray;
-                        zguideLine.SetPosition(0, new Vector3(x - 0.5f, 0.01f, -0.5f));
-                        zguideLine.SetPosition(1, new Vector3(x - 0.5f, 0.01f, breadth - 0.5f));
+                        zguideLine.SetPosition(0, new Vector3((x * scale) - (scale / 2), 0.01f, -(scale / 2)));
+                        zguideLine.SetPosition(1, new Vector3((x * scale) - (scale / 2), 0.01f, breadth - (scale / 2)));
                     }
                 }
 
