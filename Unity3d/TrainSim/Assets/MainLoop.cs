@@ -6,7 +6,7 @@ public class MainLoop : MonoBehaviour
     public GameObject gridPrefab;
     public int width = 20;
     public int breadth = 20;
-    private readonly bool showCoordsOnFloor = false;
+    private readonly bool showCoordsOnFloor = true;
     private readonly bool showGridOnFloor = true;
 
 
