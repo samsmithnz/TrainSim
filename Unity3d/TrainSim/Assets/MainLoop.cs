@@ -8,6 +8,7 @@ public class MainLoop : MonoBehaviour
     public GameObject gridPrefab;
     public int width = 20;
     public int breadth = 20;
+    private float scale = 4f;
     private readonly bool showCoordsOnFloor = true;
     private readonly bool showGridOnFloor = true;
 
@@ -25,6 +26,11 @@ public class MainLoop : MonoBehaviour
         //A track can be straight or curved
 
         List<Track> tracks = new List<Track>();
+        tracks.Add(new Track(new Vector3(4, 0, 20), new Vector3(4, 0, 19), "straight")); //straight track
+        //translates to position 10,0,40, where the straight track length is 2.5, and the width is 1.25
+        // when the scale is 0.4, track length is 2 and width is 1. 
+
+        //curves are 4.5 long and wide
     }
 
     private void SetupLevel(GameObject parentGameObject, int width, int breadth)
@@ -39,7 +45,6 @@ public class MainLoop : MonoBehaviour
         parentFloor.transform.parent = parentGameObject.transform;
 
         int y = 0;
-        float scale = 2f;
         //Draw the map on the screen
         for (int x = 0; x <= width - 1; x++)
         {
