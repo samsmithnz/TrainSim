@@ -22,7 +22,7 @@ namespace TacticsToolkit
 
         private Vector3 desiredPosition;
 
-        public int movementSpeed = 16;
+        public int movementSpeed = 24;
 
         public float smoothTime = 0.2f;
 
