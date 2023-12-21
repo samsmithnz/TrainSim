@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 using Color = UnityEngine.Color;
 
@@ -19,6 +20,10 @@ public class MainLoop : MonoBehaviour
     private void SetupTracks()
     {
 
+        //A track needs a start and end point, and a type of track, and a rotation (or do we work out the rotation from the start and end points?)
+        //A track can be straight or curved
+
+        List<Track> tracks = new List<Track>();
     }
 
     private void SetupLevel(GameObject parentGameObject, int width, int breadth)

@@ -8,7 +8,8 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <RootNamespace></RootNamespace>
+    <RootNamespace>
+    </RootNamespace>
     <ProjectGuid>{B750C301-8B0C-CA09-8906-D217CDF5664E}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
@@ -57,6 +58,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\MainLoop.cs" />
+    <Compile Include="Assets\Models\Track.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\PolygonPrototype\Shaders\Prototype_Glass_Global.shader" />
