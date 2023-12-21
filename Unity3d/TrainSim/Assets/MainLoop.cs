@@ -13,6 +13,12 @@ public class MainLoop : MonoBehaviour
     void Start()
     {
         SetupLevel(gameObject, width, breadth);
+        SetupTracks();
+    }
+
+    private void SetupTracks()
+    {
+
     }
 
     private void SetupLevel(GameObject parentGameObject, int width, int breadth)
