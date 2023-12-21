@@ -90,8 +90,9 @@ public class MainLoop : MonoBehaviour
                 //Create a grid on the floor 
                 if (showGridOnFloor == true)
                 {
-                    //Color darkGray = new Color(0.184313725f, 0.309803922f, 0.309803922f); //Dark gray
-                    Color darkGray = Color.red;
+                    float height = 0.02f;
+                    Color darkGray = new Color(0.184313725f, 0.309803922f, 0.309803922f); //Dark gray
+                    //Color darkGray = Color.red;
                     //Draw line renderers
                     if (x == 0 && z != breadth - 1)
                     {
@@ -100,8 +101,8 @@ public class MainLoop : MonoBehaviour
                         xguideLine.widthMultiplier = 0.01f;
                         xguideLine.startColor = darkGray;
                         xguideLine.endColor = darkGray;
-                        xguideLine.SetPosition(0, new Vector3(-(scale / 2), 0.02f, (z * scale) + (scale / 2)));
-                        xguideLine.SetPosition(1, new Vector3((width * scale) - (scale / 2), 0.02f, (z * scale) + (scale / 2)));
+                        xguideLine.SetPosition(0, new Vector3(-(scale / 2), height, (z * scale) + (scale / 2)));
+                        xguideLine.SetPosition(1, new Vector3((width * scale) - (scale / 2), height, (z * scale) + (scale / 2)));
                         Debug.Log("xguideLine: " + xguideLine.GetPosition(0) + " " + xguideLine.GetPosition(1));
                     }
                     else if (z == breadth - 1 && x != 0)
@@ -111,8 +112,8 @@ public class MainLoop : MonoBehaviour
                         zguideLine.widthMultiplier = 0.01f;
                         zguideLine.startColor = darkGray;
                         zguideLine.endColor = darkGray;
-                        zguideLine.SetPosition(0, new Vector3((x * scale) - (scale / 2), 0.02f, -(scale / 2)));
-                        zguideLine.SetPosition(1, new Vector3((x * scale) - (scale / 2), 0.02f, (breadth * scale) - (scale / 2)));
+                        zguideLine.SetPosition(0, new Vector3((x * scale) - (scale / 2), height, -(scale / 2)));
+                        zguideLine.SetPosition(1, new Vector3((x * scale) - (scale / 2), height, (breadth * scale) - (scale / 2)));
                         Debug.Log("zguideLine: " + zguideLine.GetPosition(0) + " " + zguideLine.GetPosition(1));
                     }
                 }
