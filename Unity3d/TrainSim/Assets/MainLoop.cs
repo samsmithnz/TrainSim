@@ -1,3 +1,5 @@
+using Assets.Models;
+using System.Collections.Generic;
 using UnityEngine;
 using Color = UnityEngine.Color;
 
@@ -6,6 +8,7 @@ public class MainLoop : MonoBehaviour
     public GameObject gridPrefab;
     public int width = 20;
     public int breadth = 20;
+    private float scale = 4f;
     private readonly bool showCoordsOnFloor = true;
     private readonly bool showGridOnFloor = true;
 
@@ -13,6 +16,21 @@ public class MainLoop : MonoBehaviour
     void Start()
     {
         SetupLevel(gameObject, width, breadth);
+        SetupTracks();
+    }
+
+    private void SetupTracks()
+    {
+
+        //A track needs a start and end point, and a type of track, and a rotation (or do we work out the rotation from the start and end points?)
+        //A track can be straight or curved
+
+        List<Track> tracks = new List<Track>();
+        tracks.Add(new Track(new Vector3(4, 0, 20), new Vector3(4, 0, 19), "straight")); //straight track
+        //translates to position 10,0,40, where the straight track length is 2.5, and the width is 1.25
+        // when the scale is 0.4, track length is 2 and width is 1. 
+
+        //curves are 4.5 long and wide
     }
 
     private void SetupLevel(GameObject parentGameObject, int width, int breadth)
@@ -27,7 +45,6 @@ public class MainLoop : MonoBehaviour
         parentFloor.transform.parent = parentGameObject.transform;
 
         int y = 0;
-        float scale = 2f;
         //Draw the map on the screen
         for (int x = 0; x <= width - 1; x++)
         {
@@ -73,8 +90,9 @@ public class MainLoop : MonoBehaviour
                 //Create a grid on the floor 
                 if (showGridOnFloor == true)
                 {
-                    //Color darkGray = new Color(0.184313725f, 0.309803922f, 0.309803922f); //Dark gray
-                    Color darkGray = Color.red;
+                    float height = 0.02f;
+                    Color darkGray = new Color(0.184313725f, 0.309803922f, 0.309803922f); //Dark gray
+                    //Color darkGray = Color.red;
                     //Draw line renderers
                     if (x == 0 && z != breadth - 1)
                     {
@@ -83,8 +101,8 @@ public class MainLoop : MonoBehaviour
                         xguideLine.widthMultiplier = 0.01f;
                         xguideLine.startColor = darkGray;
                         xguideLine.endColor = darkGray;
-                        xguideLine.SetPosition(0, new Vector3(-(scale / 2), 0.02f, (z * scale) + (scale / 2)));
-                        xguideLine.SetPosition(1, new Vector3((width * scale) - (scale / 2), 0.02f, (z * scale) + (scale / 2)));
+                        xguideLine.SetPosition(0, new Vector3(-(scale / 2), height, (z * scale) + (scale / 2)));
+                        xguideLine.SetPosition(1, new Vector3((width * scale) - (scale / 2), height, (z * scale) + (scale / 2)));
                         Debug.Log("xguideLine: " + xguideLine.GetPosition(0) + " " + xguideLine.GetPosition(1));
                     }
                     else if (z == breadth - 1 && x != 0)
@@ -94,8 +112,8 @@ public class MainLoop : MonoBehaviour
                         zguideLine.widthMultiplier = 0.01f;
                         zguideLine.startColor = darkGray;
                         zguideLine.endColor = darkGray;
-                        zguideLine.SetPosition(0, new Vector3((x * scale) - (scale / 2), 0.02f, -(scale / 2)));
-                        zguideLine.SetPosition(1, new Vector3((x * scale) - (scale / 2), 0.02f, (breadth * scale) - (scale / 2)));
+                        zguideLine.SetPosition(0, new Vector3((x * scale) - (scale / 2), height, -(scale / 2)));
+                        zguideLine.SetPosition(1, new Vector3((x * scale) - (scale / 2), height, (breadth * scale) - (scale / 2)));
                         Debug.Log("zguideLine: " + zguideLine.GetPosition(0) + " " + zguideLine.GetPosition(1));
                     }
                 }
