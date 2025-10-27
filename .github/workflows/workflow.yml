@@ -37,7 +37,7 @@ jobs:
     - name: .NET publish
       run: dotnet publish src/TrainSim/TrainSim.csproj -c Release -p:Version='${{ steps.gitversion.outputs.MajorMinorPatch }}'
     - name: Upload package back to GitHub
-      uses: actions/upload-artifact@v4
+      uses: actions/upload-artifact@v5
       with:
         name: drop
         path: src/TrainSim/bin/Release
